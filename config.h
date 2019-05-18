@@ -14,11 +14,13 @@ static const char * const BAR_FONT = "monospace:size=8";
 /* colors:
  * (see X(7) section "COLOR NAMES" for valid values)
  */
-static const char * const WIN_BG_COLOR = "#1E1E1E";
+static const char * const WIN_BG_COLOR = "#0E0E0E";
 static const char * const WIN_FS_COLOR = "#000000";
 static const char * const SEL_COLOR    = "#EEEEEE";
-static const char * const BAR_BG_COLOR = "#222222";
+static const char * const BAR_BG_COLOR = "#111111";
 static const char * const BAR_FG_COLOR = "#EEEEEE";
+static const char * const BG_COLOR = "#FE0E0E";
+static const char * const FG_COLOR = "#000000";
 
 #endif
 #ifdef _IMAGE_CONFIG
@@ -71,7 +73,7 @@ static const keymap_t keys[] = {
 	{ 0,            XK_q,             g_quit,               None },
 	{ 0,            XK_Return,        g_switch_mode,        None },
 	{ 0,            XK_f,             g_toggle_fullscreen,  None },
-	{ 0,            XK_b,             g_toggle_bar,         None },
+	{ 0,            XK_B,             g_toggle_bar,         None },
 	{ ControlMask,  XK_x,             g_prefix_external,    None },
 	{ 0,            XK_g,             g_first,              None },
 	{ 0,            XK_G,             g_n_or_last,          None },
@@ -79,9 +81,9 @@ static const keymap_t keys[] = {
 	{ 0,            XK_D,             g_remove_image,       None },
 	{ ControlMask,  XK_h,             g_scroll_screen,      DIR_LEFT },
 	{ ControlMask,  XK_Left,          g_scroll_screen,      DIR_LEFT },
-	{ ControlMask,  XK_j,             g_scroll_screen,      DIR_DOWN },
+	{ ControlMask,  XK_j,             g_zoom,               -1 },
 	{ ControlMask,  XK_Down,          g_scroll_screen,      DIR_DOWN },
-	{ ControlMask,  XK_k,             g_scroll_screen,      DIR_UP },
+	{ ControlMask,  XK_k,             g_zoom,               +1 },
 	{ ControlMask,  XK_Up,            g_scroll_screen,      DIR_UP },
 	{ ControlMask,  XK_l,             g_scroll_screen,      DIR_RIGHT },
 	{ ControlMask,  XK_Right,         g_scroll_screen,      DIR_RIGHT },
@@ -109,11 +111,11 @@ static const keymap_t keys[] = {
 	{ 0,            XK_Right,         t_move_sel,           DIR_RIGHT },
 	{ 0,            XK_R,             t_reload_all,         None },
 
-	{ 0,            XK_n,             i_navigate,           +1 },
-	{ 0,            XK_n,             i_scroll_to_edge,     DIR_LEFT | DIR_UP },
+	{ 0,            XK_w,             i_navigate,           +1 },
+	{ 0,            XK_w,             i_scroll_to_edge,     DIR_LEFT | DIR_UP },
 	{ 0,            XK_space,         i_navigate,           +1 },
-	{ 0,            XK_p,             i_navigate,           -1 },
-	{ 0,            XK_p,             i_scroll_to_edge,     DIR_LEFT | DIR_UP },
+	{ 0,            XK_b,             i_navigate,           -1 },
+	{ 0,            XK_b,             i_scroll_to_edge,     DIR_LEFT | DIR_UP },
 	{ 0,            XK_BackSpace,     i_navigate,           -1 },
 	{ 0,            XK_bracketright,  i_navigate,           +10 },
 	{ 0,            XK_bracketleft,   i_navigate,           -10 },
@@ -134,8 +136,8 @@ static const keymap_t keys[] = {
 	{ 0,            XK_K,             i_scroll_to_edge,     DIR_UP },
 	{ 0,            XK_L,             i_scroll_to_edge,     DIR_RIGHT },
 	{ 0,            XK_equal,         i_set_zoom,           100 },
-	{ 0,            XK_w,             i_fit_to_win,         SCALE_DOWN },
-	{ 0,            XK_W,             i_fit_to_win,         SCALE_FIT },
+	{ 0,            XK_n,             i_fit_to_win,         SCALE_DOWN },
+	{ 0,            XK_N,             i_fit_to_win,         SCALE_FIT },
 	{ 0,            XK_e,             i_fit_to_win,         SCALE_WIDTH },
 	{ 0,            XK_E,             i_fit_to_win,         SCALE_HEIGHT },
 	{ 0,            XK_less,          i_rotate,             DEGREE_270 },
