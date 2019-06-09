@@ -135,11 +135,11 @@ static const keymap_t keys[] = {
 	{ 0,            XK_J,             i_scroll_to_edge,     DIR_DOWN },
 	{ 0,            XK_K,             i_scroll_to_edge,     DIR_UP },
 	{ 0,            XK_L,             i_scroll_to_edge,     DIR_RIGHT },
-	{ 0,            XK_equal,         i_set_zoom,           100 },
-	{ 0,            XK_n,             i_fit_to_win,         SCALE_DOWN },
-	{ 0,            XK_N,             i_fit_to_win,         SCALE_FIT },
-	{ 0,            XK_e,             i_fit_to_win,         SCALE_WIDTH },
-	{ 0,            XK_E,             i_fit_to_win,         SCALE_HEIGHT },
+	/* { 0,            XK_equal,         i_set_zoom,           100 }, */
+	{ 0,            XK_equal,             i_fit_to_win,         SCALE_DOWN },
+	/* { 0,            XK_N,             i_fit_to_win,         SCALE_FIT }, */
+	/* { 0,            XK_equal,         i_fit_to_win,         SCALE_WIDTH }, */
+	{ 0,            XK_s,             i_fit_to_win,         SCALE_HEIGHT },
 	{ 0,            XK_less,          i_rotate,             DEGREE_270 },
 	{ 0,            XK_greater,       i_rotate,             DEGREE_90 },
 	{ 0,            XK_question,      i_rotate,             DEGREE_180 },
@@ -147,7 +147,7 @@ static const keymap_t keys[] = {
 	{ 0,            XK_underscore,    i_flip,               FLIP_VERTICAL },
 	{ 0,            XK_a,             i_toggle_antialias,   None },
 	{ 0,            XK_A,             i_toggle_alpha,       None },
-	{ 0,            XK_s,             i_slideshow,          None },
+	{ 0,            XK_S,             i_slideshow,          None },
 };
 
 /* mouse button mappings for image mode: */
