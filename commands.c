@@ -21,6 +21,7 @@
 #include "config.h"
 
 #include <stdlib.h>
+#include <pthread.h>
 #include <string.h>
 #include <unistd.h>
 #include <sys/wait.h>
@@ -320,6 +321,16 @@ bool ci_toggle_animation(arg_t _)
 		}
 	}
 	return dirty;
+}
+
+bool ci_copy_to_clipboard(arg_t dir){
+    char *le_program = calloc(sizeof(char) , 200);
+    strcat(le_program, "/home/nexor/.local/bin/ci '");
+    strcat(le_program, files[fileidx].path);
+    strcat(le_program, "' &");
+    int le_failure = system(le_program);
+    free(le_program);
+    return !le_failure;
 }
 
 bool ci_scroll(arg_t dir)
